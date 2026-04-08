@@ -1,13 +1,40 @@
-
-
+import itertools
+import sys
+import threading
 import librosa
 import librosa.display
 import matplotlib.pyplot as plt
 import numpy as np
+import time
+
+loading = True
+
+def spinner():
+    global loading
+    for char in itertools.cycle(['|', '/', '-', '\\']):
+        if not loading:
+            break
+        sys.stdout.write(f'\rGenerowanie wykresów... {char}')
+        sys.stdout.flush()
+        time.sleep(0.1)
+    sys.stdout.write('\rGotowe!                    \n')
 
 def visualize_sound(name):
+    global loading
+    # Uruchom spinner
+    t = threading.Thread(target=spinner)
+    t.start()
+
+    # Ekran ładowania
+    loading_fig = plt.figure(figsize=(6, 2))
+    plt.text(0.5, 0.5, "Ładowanie wykresów...",
+             fontsize=18, ha='center', va='center')
+    plt.axis('off')
+    plt.show(block=False)
+    plt.pause(0.1)
 
     y, sr = librosa.load("Pufino_Thoughtful(freetouse.com).mp3", sr=None)
+
 
     # 1. Waveform
     plt.figure(figsize=(12, 4))
@@ -37,6 +64,11 @@ def visualize_sound(name):
     plt.ylabel("Częstotliwość [Hz]")
     plt.tight_layout()
     plt.savefig("spectrogram.png", dpi=300)
+
+    # Zatrzymaj spinner
+    loading = False
+    t.join()
+
     plt.show()  # Press Ctrl+F8 to toggle the breakpoint.
 
 
