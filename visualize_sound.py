@@ -25,14 +25,6 @@ def visualize_sound(name):
     t = threading.Thread(target=spinner)
     t.start()
 
-    # Ekran ładowania
-    loading_fig = plt.figure(figsize=(6, 2))
-    plt.text(0.5, 0.5, "Ładowanie wykresów...",
-             fontsize=18, ha='center', va='center')
-    plt.axis('off')
-    plt.show(block=False)
-    plt.pause(0.1)
-
     y, sr = librosa.load("Pufino_Thoughtful(freetouse.com).mp3", sr=None)
 
 
