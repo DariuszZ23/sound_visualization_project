@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time
 
-loading = True
+loading = False
 
 def spinner():
     global loading
@@ -22,11 +22,17 @@ def spinner():
 def visualize_sound(name):
     global loading
     # Uruchom spinner
+    loading = True
     t = threading.Thread(target=spinner)
     t.start()
 
-    y, sr = librosa.load("Pufino_Thoughtful(freetouse.com).mp3", sr=None)
-
+    try:
+        y, sr = librosa.load("Pufino_Thoughtful(freetouse.com).mp3", sr=None)
+    except FileNotFoundError:
+        loading = False
+        t.join()
+        print("\rBłąd: nie znaleziono pliku audio.")
+        sys.exit()
 
     # 1. Waveform
     plt.figure(figsize=(12, 4))
@@ -57,11 +63,11 @@ def visualize_sound(name):
     plt.tight_layout()
     plt.savefig("spectrogram.png", dpi=300)
 
+    plt.show()
     # Zatrzymaj spinner
     loading = False
     t.join()
 
-    plt.show()  # Press Ctrl+F8 to toggle the breakpoint.
 
 
 if __name__ == '__main__':
