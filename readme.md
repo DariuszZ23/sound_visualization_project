@@ -1,0 +1,108 @@
+# 🎵 Sound Visualization Project
+
+Projekt służy do wizualizacji plików audio przy użyciu bibliotek librosa i matplotlib.
+
+## ✨ Funkcje programu
+
+Program:
+
+* wczytuje plik audio MP3
+* generuje waveform (kształt fali)
+* generuje spectrogram
+* zapisuje wykresy do plików PNG
+* wyświetla prostą animację ładowania w terminalu podczas przetwarzania
+* obsługuje błąd braku pliku audio
+
+---
+
+## ⚙️ Wymagania
+
+Do uruchomienia projektu potrzebny jest Python 3.10+ oraz następujące biblioteki:
+
+```bash
+pip install librosa matplotlib numpy soundfile audioread
+```
+
+---
+
+## 📁 Struktura projektu
+
+```text
+sound_visualization_project/
+│
+├── main.py
+├── Pufino_Thoughtful(freetouse.com).mp3
+├── waveform.png
+├── spectrogram.png
+└── README.md
+```
+---
+## ▶️ Jak uruchomić
+
+1. Umieść plik audio w folderze projektu.
+2. Upewnij się, że nazwa pliku zgadza się z tą w kodzie:
+
+```python
+librosa.load("Pufino_Thoughtful(freetouse.com).mp3", sr=None)
+```
+
+3. Uruchom program:
+
+```bash
+python main.py
+```
+
+---
+
+## 🔄 Działanie programu
+
+Podczas działania programu w terminalu wyświetlana jest prosta animacja ładowania:
+
+```text
+Generowanie wykresów... |
+Generowanie wykresów... /
+Generowanie wykresów... -
+Generowanie wykresów... \
+```
+
+Po zakończeniu generowania wykresów pojawia się komunikat:
+
+```text
+Gotowe!
+```
+
+---
+
+## 💾 Zapisywane pliki
+
+Program automatycznie zapisuje wygenerowane wykresy jako:
+
+* waveform.png
+* spectrogram.png
+
+---
+
+## ❌ Obsługa błędów
+
+### FileNotFoundError
+
+Jeśli plik audio nie zostanie znaleziony:
+
+```text
+Błąd: nie znaleziono pliku audio.
+```
+
+Program zatrzyma spinner, zakończy działanie i wyjdzie z programu.
+
+---
+
+## 🚀 Możliwe rozszerzenia projektu
+
+* mel-spectrogram
+* chromagram
+* wykrywanie beatów
+* MFCC
+* animowane wykresy
+* GUI w Tkinter
+* obsługa wielu plików audio
+* wybór pliku audio z poziomu użytkownika
