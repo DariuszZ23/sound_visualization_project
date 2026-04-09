@@ -43,7 +43,7 @@ sound_visualization_project/
 2. Upewnij się, że nazwa pliku zgadza się z tą w kodzie:
 
 ```python
-librosa.load("Pufino_Thoughtful(freetouse.com).mp3", sr=None)
+librosa.load("nazwa_pliku.mp3", sr=None)
 ```
 
 3. Uruchom program:
