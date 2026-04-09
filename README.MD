@@ -64,7 +64,19 @@ Generowanie wykresów... /
 Generowanie wykresów... -
 Generowanie wykresów... \
 ```
+---
+## 📊 Przykładowy wynik
 
+![waveform.png](waveform.png)
+```text
+Waveform przedstawia zmiany amplitudy dźwięku w czasie. Większe wychylenia oznaczają głośniejsze fragmenty utworu, a mniejsze cichsze partie.
+```
+
+![spectrogram.png](spectrogram.png)
+```text
+Spectrogram pokazuje rozkład częstotliwości w czasie. Jaśniejsze kolory oznaczają większą intensywność danej częstotliwości, natomiast ciemniejsze mniejszą. Niskie częstotliwości znajdują się na dole wykresu, a wysokie u góry.
+```
+---
 Po zakończeniu generowania wykresów pojawia się komunikat:
 
 ```text
