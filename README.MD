@@ -11,6 +11,7 @@ Program:
 * generuje spectrogram
 * zapisuje wykresy do plików PNG
 * wyświetla prostą animację ładowania w terminalu podczas przetwarzania
+* wykorzystuje wielowątkowość do równoczesnego generowania spinnera i przetwarzania audio
 * obsługuje błąd braku pliku audio
 
 ---
@@ -39,17 +40,15 @@ sound_visualization_project/
 ---
 ## ▶️ Jak uruchomić
 
-1. Umieść plik audio w folderze projektu.
-2. Upewnij się, że nazwa pliku zgadza się z tą w kodzie:
-
-```python
-librosa.load("nazwa_pliku.mp3", sr=None)
+1. Uruchom program:
+```bash
+python visualize_sound.py
 ```
 
-3. Uruchom program:
+2. Po uruchomieniu wpisz nazwę pliku:
 
 ```bash
-python main.py
+Podaj nazwę pliku MP3: np.muzyka.mp3
 ```
 
 ---
@@ -118,3 +117,7 @@ Program zatrzyma spinner, zakończy działanie i wyjdzie z programu.
 * GUI w Tkinter
 * obsługa wielu plików audio
 * wybór pliku audio z poziomu użytkownika
+
+## 👨‍💻 Autor
+
+Dariusz Zerynger

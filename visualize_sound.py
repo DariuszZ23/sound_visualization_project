@@ -20,6 +20,7 @@ def spinner():
     sys.stdout.write('\rGotowe!                    \n')
 
 def visualize_sound(name):
+    mp3_file_name = input("Podaj nazwę pliku MP3: ")
     global loading
     # Uruchom spinner
     loading = True
@@ -27,7 +28,7 @@ def visualize_sound(name):
     t.start()
 
     try:
-        y, sr = librosa.load("Pufino_Thoughtful(freetouse.com).mp3", sr=None)
+        y, sr = librosa.load(mp3_file_name, sr=None)
     except FileNotFoundError:
         loading = False
         t.join()
