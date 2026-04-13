@@ -58,10 +58,7 @@ Enter MP3 file name: np.C:\Users\NazwaUżytkownika\Music\muzyka.mp3
 Podczas działania programu w terminalu wyświetlana jest prosta animacja ładowania:
 
 ```text
-Generating plots... |
 Generating plots... /
-Generating plots... -
-Generating plots... \
 ```
 ---
 ## 📊 Przykładowy wynik

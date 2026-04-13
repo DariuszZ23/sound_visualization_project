@@ -65,10 +65,7 @@ The program uses multithreading:
 During execution, a simple animation is shown:
 
 ```text
-Generating plots... |
 Generating plots... /
-Generating plots... -
-Generating plots... \
 ```
 
 After processing is complete, you will see:
