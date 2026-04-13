@@ -50,7 +50,7 @@ python main.py
 2. Enter the file name when prompted:
 
 ```text
-Enter MP3 file name: music.mp3
+Enter MP3 file name: for example C:\Users\UserName\Music\music.mp3
 ```
 
 ---
