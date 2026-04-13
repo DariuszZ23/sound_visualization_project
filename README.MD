@@ -1,24 +1,24 @@
 # 🎵 Sound Visualization Project
 
-Projekt służy do wizualizacji plików audio przy użyciu bibliotek librosa i matplotlib.
+This project is used to visualize audio files using the librosa and matplotlib libraries.
 
-## ✨ Funkcje programu
+## ✨ Features
 
-Program:
+The program:
 
-* wczytuje plik audio MP3
-* generuje waveform (kształt fali)
-* generuje spectrogram
-* zapisuje wykresy do plików PNG
-* wyświetla prostą animację ładowania w terminalu podczas przetwarzania
-* wykorzystuje wielowątkowość do równoczesnego generowania spinnera i przetwarzania audio
-* obsługuje błąd braku pliku audio
+* loads an MP3 audio file provided by the user
+* generates a waveform (signal shape)
+* generates a spectrogram
+* saves plots as PNG files
+* displays a simple loading animation in the terminal during processing
+* uses multithreading to run the spinner and audio processing simultaneously
+* handles the case when the audio file is not found
 
 ---
 
-## ⚙️ Wymagania
+## ⚙️ Requirements
 
-Do uruchomienia projektu potrzebny jest Python 3.10+ oraz następujące biblioteki:
+To run the project you need Python 3.10+ and the following libraries:
 
 ```bash
 pip install librosa matplotlib numpy soundfile audioread
@@ -26,98 +26,100 @@ pip install librosa matplotlib numpy soundfile audioread
 
 ---
 
-## 📁 Struktura projektu
+## 📁 Project Structure
 
 ```text
 sound_visualization_project/
 │
 ├── main.py
-├── Pufino_Thoughtful(freetouse.com).mp3
 ├── waveform.png
 ├── spectrogram.png
 └── README.md
 ```
+
 ---
-## ▶️ Jak uruchomić
 
-1. Uruchom program:
-```bash
-python visualize_sound.py
-```
+## ▶️ How to Run
 
-2. Po uruchomieniu wpisz nazwę pliku:
+1. Run the program:
 
 ```bash
-Podaj nazwę pliku MP3: np.muzyka.mp3
+python main.py
+```
+
+2. Enter the file name when prompted:
+
+```text
+Enter MP3 file name: music.mp3
 ```
 
 ---
 
-## 🔄 Działanie programu
+## 🔄 How It Works
 
-Podczas działania programu w terminalu wyświetlana jest prosta animacja ładowania:
+The program uses multithreading:
+
+* the main thread loads the file and generates plots
+* a secondary thread displays a loading animation in the terminal
+
+During execution, a simple animation is shown:
 
 ```text
-Generowanie wykresów... |
-Generowanie wykresów... /
-Generowanie wykresów... -
-Generowanie wykresów... \
-```
----
-## 📊 Przykładowy wynik
-
-![waveform.png](waveform.png)
-```text
-Waveform przedstawia zmiany amplitudy dźwięku w czasie. Większe wychylenia oznaczają głośniejsze fragmenty utworu, a mniejsze cichsze partie.
+Generating plots... |
+Generating plots... /
+Generating plots... -
+Generating plots... \
 ```
 
-![spectrogram.png](spectrogram.png)
-```text
-Spectrogram pokazuje rozkład częstotliwości w czasie. Jaśniejsze kolory oznaczają większą intensywność danej częstotliwości, natomiast ciemniejsze mniejszą. Niskie częstotliwości znajdują się na dole wykresu, a wysokie u góry.
-```
----
-Po zakończeniu generowania wykresów pojawia się komunikat:
+After processing is complete, you will see:
 
 ```text
-Gotowe!
+Done!
 ```
 
 ---
 
-## 💾 Zapisywane pliki
+## 💾 Output Files
 
-Program automatycznie zapisuje wygenerowane wykresy jako:
+The program automatically saves generated plots as:
 
 * waveform.png
 * spectrogram.png
 
 ---
 
-## ❌ Obsługa błędów
+## 📊 Example Output
+![waveform.png](waveform.png)
+```text
+Waveform shows how the amplitude of the sound changes over time. Larger peaks indicate louder parts, while smaller ones indicate quieter sections.
+```
+![spectrogram.png](spectrogram.png)
+```text
+Spectrogram shows how frequencies are distributed over time. Brighter colors indicate higher intensity of a frequency, while darker colors indicate lower intensity. Low frequencies are at the bottom, high frequencies at the top.
+```
+---
+
+## ❌ Error Handling
 
 ### FileNotFoundError
 
-Jeśli plik audio nie zostanie znaleziony:
+If the audio file is not found:
 
 ```text
-Błąd: nie znaleziono pliku audio.
+Error: audio file not found.
 ```
 
-Program zatrzyma spinner, zakończy działanie i wyjdzie z programu.
+The program stops the spinner, terminates execution, and exits.
 
 ---
 
-## 🚀 Możliwe rozszerzenia projektu
+## 🚀 Possible Extensions
 
 * mel-spectrogram
 * chromagram
-* wykrywanie beatów
+* beat detection
 * MFCC
-* animowane wykresy
-* GUI w Tkinter
-* obsługa wielu plików audio
-* wybór pliku audio z poziomu użytkownika
-
-## 👨‍💻 Autor
-
-Dariusz Zerynger
+* animated plots
+* GUI using Tkinter
+* multiple file support
+* file selection via user interface

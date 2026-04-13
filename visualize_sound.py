@@ -14,13 +14,13 @@ def spinner():
     for char in itertools.cycle(['|', '/', '-', '\\']):
         if not loading:
             break
-        sys.stdout.write(f'\rGenerowanie wykresów... {char}')
+        sys.stdout.write(f'\rGenerating plots... {char}')
         sys.stdout.flush()
         time.sleep(0.1)
-    sys.stdout.write('\rGotowe!                    \n')
+    sys.stdout.write('\rDone!                    \n')
 
 def visualize_sound(name):
-    mp3_file_name = input("Podaj nazwę pliku MP3: ")
+    mp3_file_name = input("Enter MP3 file name: ")
     global loading
     # Uruchom spinner
     loading = True
@@ -32,7 +32,7 @@ def visualize_sound(name):
     except FileNotFoundError:
         loading = False
         t.join()
-        print("\rBłąd: nie znaleziono pliku audio.")
+        print("\rError: audio file not found.")
         sys.exit()
 
     # 1. Waveform
