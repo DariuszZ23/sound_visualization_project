@@ -20,8 +20,7 @@ def spinner():
         time.sleep(0.1)
     if success:
         sys.stdout.write('\rDone!                    \n')
-    else:
-        sys.stdout.write('\r                        \r')
+
 
 
 def visualize_sound(name):
