@@ -8,16 +8,21 @@ import numpy as np
 import time
 
 loading = False
+success = False
 
 def spinner():
-    global loading
+    global loading, success
     for char in itertools.cycle(['|', '/', '-', '\\']):
         if not loading:
             break
         sys.stdout.write(f'\rGenerating plots... {char}')
         sys.stdout.flush()
         time.sleep(0.1)
-    sys.stdout.write('\rDone!                    \n')
+    if success:
+        sys.stdout.write('\rDone!                    \n')
+    else:
+        sys.stdout.write('\r                        \r')
+
 
 def visualize_sound(name):
     mp3_file_name = input("Enter MP3 file name: ")
@@ -65,7 +70,28 @@ def visualize_sound(name):
     plt.savefig("spectrogram.png", dpi=300)
 
     plt.show()
+
+    # 3. Mel-Spectrogram
+    S = librosa.feature.melspectrogram(y=y, sr=sr, n_fft=2048, hop_length=512)
+    S_db = librosa.power_to_db(S, ref=np.max)
+
+    plt.figure(figsize=(12, 6))
+    librosa.display.specshow(
+        S_db,
+        sr=sr,
+        x_axis='time',
+        y_axis='mel',
+        cmap='magma'
+    )
+    plt.colorbar(format='%+2.0f dB')
+    plt.title("Mel spectrogram")
+    plt.xlabel("Czas [s]")
+    plt.ylabel("Skala mel")
+    plt.tight_layout()
+    plt.savefig("mel_spectrogram.png", dpi=300)
+    plt.show()
     # Zatrzymaj spinner
+    success = True
     loading = False
     t.join()
 
